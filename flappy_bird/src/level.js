@@ -31,6 +31,15 @@ export default class Level {
     }
   }
 
+  collidesWith(bounds) {
+    // for (let i=0; i < this.pipes.length; i++) {
+    //   let x = this.pipes[i][0]
+    //   let y = this.pipes[i][1]
+
+    //   if ()
+    // }
+  }
+
   animate(ctx) {
     this.drawBackground(ctx);
     this.movePipes();

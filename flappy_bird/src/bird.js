@@ -29,5 +29,12 @@ export default class Bird {
     this.velocity = CONSTANTS.FLAP_SPEED;
   }
 
+  getBounds() {
+    return {
+      topLeft: [this.x, this.y],
+      bottomRight: [this.x+CONSTANTS.BIRD_WIDTH, this.y+CONSTANTS.BIRD_HEIGHT]
+    }
+  }
+
 
 }
