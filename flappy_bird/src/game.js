@@ -6,9 +6,7 @@ export default class FlappyBird {
     this.ctx = canvas.getContext("2d");
     this.dimensions = { width: canvas.width, height: canvas.height };
     this.restart();
-    canvas.addEventListener("click", (event) => {
-      this.click()
-    });
+    canvas.addEventListener("click", this.click.bind(this));
   }
 
   restart() {
@@ -19,7 +17,7 @@ export default class FlappyBird {
   }
 
   animate() {
-    this.level.drawBackground(this.ctx);
+    this.level.animate(this.ctx);
     this.bird.move();
     this.bird.drawBird(this.ctx);
 
