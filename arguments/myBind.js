@@ -1,8 +1,18 @@
-Function.prototype.myBind = function(context, ...bindArgs) {
+Function.prototype.myBind2 = function(context, ...bindArgs) {
   let that = this;
 
   return function(...callArgs) {
     that.call(context, ...bindArgs, ...callArgs);
+  }
+}
+
+Function.prototype.myBind = function(context) {
+  let that = this;
+  let bindArgs = Array.prototype.slice.call(arguments, 1);
+
+  return function() {
+    let callArgs = Array.prototype.slice.call(arguments);
+    that.apply(context, bindArgs.concat(callArgs));
   }
 }
 
