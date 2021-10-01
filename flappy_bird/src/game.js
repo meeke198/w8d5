@@ -1,4 +1,5 @@
 import Level from "./level"
+import Bird from "./bird"
 
 export default class FlappyBird {
   constructor(canvas){
@@ -8,10 +9,12 @@ export default class FlappyBird {
 
   restart() {
     this.level = new Level(this.dimensions);
+    this.bird = new Bird(this.dimensions);
     this.animate();
   }
 
   animate() {
     this.level.drawBackground(this.ctx);
+    this.bird.drawBird(this.ctx);
   }
 }
