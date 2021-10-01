@@ -6,16 +6,37 @@ export default class FlappyBird {
     this.ctx = canvas.getContext("2d");
     this.dimensions = { width: canvas.width, height: canvas.height };
     this.restart();
+    canvas.addEventListener("click", (event) => {
+      this.click()
+    });
   }
 
   restart() {
     this.level = new Level(this.dimensions);
     this.bird = new Bird(this.dimensions);
+    this.running = false;
     this.animate();
   }
 
   animate() {
     this.level.drawBackground(this.ctx);
+    this.bird.move();
     this.bird.drawBird(this.ctx);
+
+    if (this.running) {
+      requestAnimationFrame(this.animate.bind(this));
+    }
+  }
+
+  play() {
+    this.running = true;
+    this.animate();
+  }
+
+  click() {
+    if (!this.running) {
+      this.play();
+    }
+    this.bird.flap();
   }
 }
