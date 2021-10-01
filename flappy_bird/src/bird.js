@@ -3,14 +3,13 @@ export default class Bird {
     this.dimensions = dimensions;
     this.velocity = 0;
 
-    let verticalPos = this.dimensions.height/2;
-    let horizontalPos = this.dimensions.width/3;
-    this.position = [horizontalPos, verticalPos];
+    this.verticalPos = this.dimensions.height/2;
+    this.horizontalPos = this.dimensions.width/3;
   }
 
   drawBird(ctx) {
     ctx.fillStyle = "yellow";
-    ctx.fillRect(...this.position, 40, 30);
+    ctx.fillRect(this.horizontalPos, this.verticalPos, 40, 30);
   }
 
 
