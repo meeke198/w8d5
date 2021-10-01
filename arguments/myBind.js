@@ -8,10 +8,10 @@ Function.prototype.myBind2 = function(context, ...bindArgs) {
 
 Function.prototype.myBind = function(context) {
   let that = this;
-  let bindArgs = Array.prototype.slice.call(arguments, 1);
+  let bindArgs = Array.from(arguments).slice(1);
 
   return function() {
-    let callArgs = Array.prototype.slice.call(arguments);
+    let callArgs = Array.from(arguments);
     that.apply(context, bindArgs.concat(callArgs));
   }
 }
